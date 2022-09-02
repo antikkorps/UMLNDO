@@ -1,0 +1,176 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>9</zoom_level><help_text>Space for diagram notes</help_text><element><id>UMLClass</id><coordinates><x>36</x><y>504</y><w>189</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Collaborateur&gt;&gt;
+
+--
+-Matricule: VARCHAR (Primary Key)
+-Nom: VARCHAR
+-Prenom: VARCHAR
+-Situation: Booleen (Foreign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1152</x><y>900</y><w>225</w><h>108</h></coordinates><panel_attributes>&lt;&lt;Groupement de point de vente&gt;&gt;
+
+--
+-ID_gpdv: VARCHAR (Primary Key)
+-Nom_GPDV: VARCHAR
+-Organisation_Unit: VARCHAR (Forign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1125</x><y>738</y><w>189</w><h>99</h></coordinates><panel_attributes>&lt;&lt;Point de vente&gt;&gt;
+
+--
+-ID_PDV: VARCHAR (Primary Key)
+-Nom_PDV: VARCHAR
+-Metier: (foreign key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>207</x><y>594</y><w>963</w><h>378</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Appartiennent &gt;</panel_attributes><additional_attributes>10;10;10;250;970;250;970;390;1050;390</additional_attributes></element><element><id>Relation</id><coordinates><x>216</x><y>576</y><w>927</w><h>243</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+Appartient &gt;</panel_attributes><additional_attributes>10;10;70;10;70;240;1010;240</additional_attributes></element><element><id>UMLClass</id><coordinates><x>936</x><y>558</y><w>189</w><h>81</h></coordinates><panel_attributes>&lt;&lt;Metier&gt;&gt;
+
+--
+-ID_poste: VARCHAR (Primary Key)
+-Metier: VARCHAR
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>72</x><y>423</y><w>972</w><h>153</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+peut avoir &gt;</panel_attributes><additional_attributes>10;90;10;20;1050;20;1050;150</additional_attributes></element><element><id>UMLClass</id><coordinates><x>666</x><y>558</y><w>189</w><h>90</h></coordinates><panel_attributes>&lt;&lt;Contrats&gt;&gt;
+
+--
+-ID_CONTRAT: VARCHAR (Primary Key)
+-METIER: VARCHAR (Foreign Key)
+-ETP: FLOAT (Foreign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>189</x><y>441</y><w>603</w><h>135</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+a &gt;</panel_attributes><additional_attributes>10;70;10;20;640;20;640;130</additional_attributes></element><element><id>UMLClass</id><coordinates><x>378</x><y>558</y><w>189</w><h>72</h></coordinates><panel_attributes>&lt;&lt;Situation&gt;&gt;
+
+--
+-ID: VARCHAR (Primary Key)
+-Actif: BOOLEEN
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>216</x><y>495</y><w>270</w><h>81</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=0..1
+est actif ou pas &gt;</panel_attributes><additional_attributes>10;20;260;20;260;70</additional_attributes></element><element><id>Relation</id><coordinates><x>1233</x><y>828</y><w>144</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n
+composent &gt;</panel_attributes><additional_attributes>130;80;130;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1062</x><y>630</y><w>180</w><h>126</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+contient une ou plusieurs &gt;</panel_attributes><additional_attributes>160;120;160;80;40;80;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>819</x><y>630</y><w>189</w><h>63</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n
+est inscrit dans &gt;</panel_attributes><additional_attributes>10;20;10;50;170;50;170;10</additional_attributes></element><element><id>Relation</id><coordinates><x>486</x><y>621</y><w>288</w><h>72</h></coordinates><panel_attributes>lt=-
+m1=0..1
+m2=1..n
+est soit actif soit inactif &gt;</panel_attributes><additional_attributes>10;10;10;60;280;60;280;30</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1233</x><y>1071</y><w>225</w><h>108</h></coordinates><panel_attributes>&lt;&lt;Secteur&gt;&gt;
+
+--
+-ID_SECTEUR: VARCHAR (Primary Key)
+-Nom_GPDV: VARCHAR
+-Organisation_Unit: VARCHAR (Forign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1314</x><y>999</y><w>153</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n
+composent &gt;</panel_attributes><additional_attributes>140;80;140;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>189</x><y>594</y><w>1062</w><h>540</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+Appartiennent &gt;</panel_attributes><additional_attributes>10;10;10;300;890;300;890;570;1160;570</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1287</x><y>1242</y><w>225</w><h>108</h></coordinates><panel_attributes>&lt;&lt;Direction Commerciale&gt;&gt;
+
+--
+-ID_DC: VARCHAR (Primary Key)
+-Nom_DC: VARCHAR
+-Organisation_Unit: VARCHAR (Forign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1332</x><y>1170</y><w>153</w><h>90</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..n
+composent &gt;</panel_attributes><additional_attributes>140;80;140;50;10;50;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>162</x><y>594</y><w>1143</w><h>711</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+Appartiennent &gt;</panel_attributes><additional_attributes>10;10;10;380;850;380;850;760;1250;760</additional_attributes></element><element><id>UMLClass</id><coordinates><x>846</x><y>702</y><w>189</w><h>81</h></coordinates><panel_attributes>&lt;&lt;ETP&gt;&gt;
+
+--
+-ID_ETP
+-Temps Plein: BOOLEEN
+-ETP: FLOAT
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>756</x><y>639</y><w>108</w><h>144</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..2
+représente &gt;</panel_attributes><additional_attributes>10;10;10;130;100;130</additional_attributes></element><element><id>Relation</id><coordinates><x>1026</x><y>747</y><w>117</w><h>45</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+représente &gt;</panel_attributes><additional_attributes>10;20;110;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>288</x><y>180</y><w>279</w><h>189</h></coordinates><panel_attributes>&lt;&lt;Affectation Actuelle&gt;&gt;
+
+--
+-MATRICULE: INT (Foreign Key)
+-ID: VARCHAR (Primary Key)
+-Contrat: VARCHAR(15) (Foreign Key)
+-Metier: VARCHAR (Foreign Key)
+-Direction Commerciale: VARCHAR (Foreign Key)
+-Groupement PDV1: VARCHAR (Foreign Key)
+-PDV1: VARCHAR (Foreign Key)
+-ETP1: FLOAT (Foreign Key)
+-Groupement PDV2: VARCHAR (Foreign Key)
+-PDV2: VARCHAR (Foreign Key)
+-ETP2: FLOAT (Foreign Key)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>747</x><y>180</y><w>270</w><h>207</h></coordinates><panel_attributes>&lt;&lt;Affectation Cible&gt;&gt;
+
+--
+-MATRICULE: INT (Foreign Key)
+-ID: VARCHAR (Primary Key)
+-Contrat: VARCHAR(15) (Foreign Key)
+-Metier: VARCHAR (Foreign Key)
+-Direction Commerciale: VARCHAR (Foreign Key)
+-Groupement PDV1: VARCHAR (Foreign Key)
+-PDV1: VARCHAR (Foreign Key)
+-ETP1: FLOAT (Foreign Key)
+-Groupement PDV2: VARCHAR (Foreign Key)
+-PDV2: VARCHAR (Foreign Key)
+-ETP2: FLOAT (Foreign Key)
+-MOVIN_DATE: DATE
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>36</x><y>126</y><w>315</w><h>396</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+peut avoir &gt;</panel_attributes><additional_attributes>10;420;10;10;320;10;320;60</additional_attributes></element><element><id>Relation</id><coordinates><x>0</x><y>81</y><w>873</w><h>504</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1
+peut avoir &gt;</panel_attributes><additional_attributes>40;530;20;530;20;20;940;20;940;110</additional_attributes></element><element><id>Relation</id><coordinates><x>432</x><y>108</y><w>630</w><h>468</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Correspond à une affectation actuelle</panel_attributes><additional_attributes>670;500;670;20;10;20;10;80</additional_attributes></element><element><id>Relation</id><coordinates><x>864</x><y>144</y><w>396</w><h>432</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Correspond à une affectation cible</panel_attributes><additional_attributes>210;460;210;10;10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>450</x><y>144</y><w>261</w><h>504</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Correspond</panel_attributes><additional_attributes>240;530;190;530;190;10;10;10;10;40</additional_attributes></element><element><id>Relation</id><coordinates><x>639</x><y>144</y><w>207</w><h>468</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; Correspond</panel_attributes><additional_attributes>30;490;20;490;20;10;200;10;200;40</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>360</y><w>522</w><h>441</h></coordinates><panel_attributes>lt=-
+m1=1..2
+m2=1
+&lt; represente</panel_attributes><additional_attributes>10;10;10;460;560;460</additional_attributes></element><element><id>Relation</id><coordinates><x>873</x><y>378</y><w>126</w><h>342</h></coordinates><panel_attributes>lt=-
+m1=1..2
+m2=1..2
+&lt; represente</panel_attributes><additional_attributes>10;10;10;300;100;300;100;360</additional_attributes></element><element><id>Relation</id><coordinates><x>414</x><y>360</y><w>864</w><h>396</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+contient une ou plusieurs &gt;</panel_attributes><additional_attributes>920;420;920;80;10;80;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>801</x><y>378</y><w>531</w><h>378</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+contient une ou plusieurs &gt;</panel_attributes><additional_attributes>550;400;550;30;10;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>216</y><w>558</w><h>729</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+contient une ou plusieurs &gt;</panel_attributes><additional_attributes>410;780;440;780;440;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>387</x><y>63</y><w>1053</w><h>909</h></coordinates><panel_attributes>lt=-
+m1=1..n
+m2=1..n
+contient une ou plusieurs &gt;</panel_attributes><additional_attributes>1100;980;1150;980;1150;20;10;20;10;130</additional_attributes></element><element><id>Relation</id><coordinates><x>477</x><y>45</y><w>1053</w><h>1098</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..2
+&lt; contient</panel_attributes><additional_attributes>1090;1190;1150;1190;1150;20;10;20;10;150</additional_attributes></element><element><id>Relation</id><coordinates><x>981</x><y>27</y><w>630</w><h>1143</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1..2
+&lt; contient</panel_attributes><additional_attributes>530;1240;620;1240;620;10;10;10;10;170</additional_attributes></element><element><id>Relation</id><coordinates><x>1008</x><y>306</y><w>630</w><h>972</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; contient</panel_attributes><additional_attributes>560;1060;620;1020;620;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>342</x><y>0</y><w>1278</w><h>1305</h></coordinates><panel_attributes>lt=-
+m1=1
+m2=1
+&lt; contient</panel_attributes><additional_attributes>1300;1430;1390;1370;1400;20;10;20;10;200</additional_attributes></element></diagram>
