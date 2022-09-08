@@ -5,5 +5,11 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
   prenom varchar(50) NOT NULL, 
 );
 
+CREATE TABLE IF NOT EXISTS secteurs(
+    id_secteur int(11) NOT NULL,
+    nom_secteur varchar(50) NOT NULL
+);
+
+
 
   INSERT INTO collaborateurs (id_collaborateur, nom, prenom, adresse, code_postal, ville) VALUES (52000, 'Muller', 'Karl', '28 place de l\'Eperon', '72000', 'Le Mans');
