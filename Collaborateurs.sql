@@ -3,11 +3,20 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
+  FOREIGN KEY (etp) REFERENCES etp (id_etp),
+  FOREIGN KEY (Directions_commerciales) REFERENCES directions_commerciales (id_direction_commerciale),
+  FOREIGN KEY (secteur) REFERENCES secteurs (id_secteur),
+  FOREIGN KEY (groupement_pdv) REFERENCES groupements_pdv (id_groupement_pdv),
+  FOREIGN KEY (metiers) REFERENCES metiers (id_metier),
+  FOREIGN KEY (contrat) REFERENCES contrats (id_contrat),
+
+
 );
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
     id_direction_co int NOT NULL,
     nom_direction_co varchar(100) NOT NULL,
+    FOREIGN KEY (matricule) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS secteurs(
@@ -18,91 +27,86 @@ CREATE TABLE IF NOT EXISTS secteurs(
 CREATE TABLE IF NOT EXISTS Groupement_pdv(
     id_groupement_pdv int NOT NULL,
     nom_groupement_pdv varchar(100) NOT NULL
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv)
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
     id_pdv int NOT NULL,
     nom_pdv varchar(100) NOT NULL,
-    /*
-    MATERIALISER LES ORGANISATIONS ACTUELLES, MODELISEES, TRANSITOIRES ET CIBLES
-    id_groupement_pdv int(11) NOT NULL,
-    id_secteur int(11) NOT NULL,
-    id_direction_co int(11) NOT NULL,
-    id_collaborateur int(11) NOT NULL
-    */
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS ETP(
-    id_ETP int NOT NULL,
-    ETP FLOAT NOT NULL
-    /*Foreign key (ETP) references*/
-
+    id_etp int NOT NULL,
+    etp FLOAT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS metiers(
     id_metier int NOT NULL,
     nom_metier varchar(100) NOT NULL
-    /*Foreign key (nom_contrat)*/
 );
 
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int NOT NULL,
     nom_contrat varchar(100) NOT NULL
-    /*Foreign key (ETP)
-    Foreign key (nom_metier)*/
+    FOREIGN KEY (etp) REFERENCES etp(id_etp),
+    FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier)
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     id_orga_actuelle int NOT NULL,
-    /*Foreign key (id_pdv)
-    Foreign key (id_groupement_pdv)
-    Foreign key (id_secteur)
-    Foreign key (id_direction_co)
-    Foreign key (id_collaborateur)
-    Foreign key (id_ETP)
-    Foreign key (id_secteur)
-    Foreign Key (id_metier)
-    Foreign key (id_contrat)*/
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (etp) REFERENCES etp(id_etp),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (metier) REFERENCES metiers(id_metier),
+    FOREIGN KEY (contrat) REFERENCES contrats(id_contrat)
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     id_orga_modelisee int NOT NULL,
-    /*Foreign key (id_pdv)
-    Foreign key (id_groupement_pdv)
-    Foreign key (id_secteur)
-    Foreign key (id_direction_co)
-    Foreign key (id_collaborateur)
-    Foreign key (id_ETP)
-    Foreign key (id_secteur)
-    Foreign Key (id_metier)
-    Foreign key (id_contrat)*/
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (etp) REFERENCES etp(id_etp),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (metier) REFERENCES metiers(id_metier),
+    FOREIGN KEY (contrat) REFERENCES contrats(id_contrat)
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
     id_orga_transitoire int NOT NULL,
-    /*Foreign key (id_pdv)
-    Foreign key (id_groupement_pdv)
-    Foreign key (id_secteur)
-    Foreign key (id_direction_co)
-    Foreign key (id_collaborateur)
-    Foreign key (id_ETP)
-    Foreign key (id_secteur)
-    Foreign Key (id_metier)
-    Foreign key (id_contrat)*/
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (etp) REFERENCES etp(id_etp),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (metier) REFERENCES metiers(id_metier),
+    FOREIGN KEY (contrat) REFERENCES contrats(id_contrat)
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int NOT NULL,
     date_du_mouvement DATE NOT NULL
-    /*Foreign key (id_pdv)
-    Foreign key (id_groupement_pdv)
-    Foreign key (id_secteur)
-    Foreign key (id_direction_co)
-    Foreign key (id_collaborateur)
-    Foreign key (id_ETP)
-    Foreign key (id_secteur)
-    Foreign Key (id_metier)
-    Foreign key (id_contrat)*/
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (etp) REFERENCES etp(id_etp),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (metier) REFERENCES metiers(id_metier),
+    FOREIGN KEY (contrat) REFERENCES contrats(id_contrat)
 );
 
 
