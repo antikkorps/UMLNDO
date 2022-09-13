@@ -7,10 +7,10 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
   FOREIGN KEY (Directions_commerciales) REFERENCES directions_commerciales (id_direction_commerciale),
   FOREIGN KEY (secteur) REFERENCES secteurs (id_secteur),
   FOREIGN KEY (groupement_pdv) REFERENCES groupements_pdv (id_groupement_pdv),
+  FOREIGN KEY (filieres) REFERENCES filieres (id_filieres),
   FOREIGN KEY (metiers) REFERENCES metiers (id_metier),
+  FOREIGN KEY (activites) REFERENCES activites (id_activite),
   FOREIGN KEY (contrat) REFERENCES contrats (id_contrat),
-
-
 );
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS pdv(
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
     FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
     FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
+    FOREIGN KEY (metiers) REFERENCES metiers(id_metier)
+    FOREIGN KEY (activites) REFERENCES activites(id_activite),
 );
 
 CREATE TABLE IF NOT EXISTS ETP(
@@ -44,9 +46,21 @@ CREATE TABLE IF NOT EXISTS ETP(
     etp FLOAT NOT NULL
 );
 
+CREATE TABLE IF NOT EXISTS activites(
+    id_activite int NOT NULL,
+    nom_activite varchar(100) NOT NULL,
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
+);
+
 CREATE TABLE IF NOT EXISTS metiers(
     id_metier int NOT NULL,
     nom_metier varchar(100) NOT NULL
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
+);
+
+CREATE TABLE IF NOT EXISTS filieres(
+    id_filiere int NOT NULL,
+    nom_filiere varchar(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS contrats (
@@ -108,8 +122,3 @@ CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     FOREIGN KEY (metier) REFERENCES metiers(id_metier),
     FOREIGN KEY (contrat) REFERENCES contrats(id_contrat)
 );
-
-
-
-
-  INSERT INTO collaborateurs (id_collaborateur, nom, prenom, adresse, code_postal, ville) VALUES (52000, 'Muller', 'Karl', '28 place de l\'Eperon', '72000', 'Le Mans');
