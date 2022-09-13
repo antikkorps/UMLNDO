@@ -14,24 +14,24 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
 );
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
-    id_direction_co int NOT NULL,
+    id_direction_co int AUTO_INCREMENT,
     nom_direction_co varchar(100) NOT NULL,
     FOREIGN KEY (matricule) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS secteurs(
-    id_secteur int NOT NULL,
+    id_secteur int AUTO_INCREMENT,
     nom_secteur varchar(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Groupement_pdv(
-    id_groupement_pdv int NOT NULL,
+    id_groupement_pdv int AUTO_INCREMENT,
     nom_groupement_pdv varchar(100) NOT NULL
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv)
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
-    id_pdv int NOT NULL,
+    id_pdv int AUTO_INCREMENT,
     nom_pdv varchar(100) NOT NULL,
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
@@ -42,36 +42,36 @@ CREATE TABLE IF NOT EXISTS pdv(
 );
 
 CREATE TABLE IF NOT EXISTS ETP(
-    id_etp int NOT NULL,
+    id_etp int AUTO_INCREMENT,
     etp FLOAT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS activites(
-    id_activite int NOT NULL,
+    id_activite int AUTO_INCREMENT,
     nom_activite varchar(100) NOT NULL,
     FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS metiers(
-    id_metier int NOT NULL,
+    id_metier int AUTO_INCREMENT,
     nom_metier varchar(100) NOT NULL
     FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS filieres(
-    id_filiere int NOT NULL,
+    id_filiere int AUTO_INCREMENT,
     nom_filiere varchar(100) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS contrats (
-    id_contrat int NOT NULL,
+    id_contrat int AUTO_INCREMENT,
     nom_contrat varchar(100) NOT NULL
     FOREIGN KEY (etp) REFERENCES etp(id_etp),
     FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier)
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
-    id_orga_actuelle int NOT NULL,
+    id_orga_actuelle int AUTO_INCREMENT,
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
