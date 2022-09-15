@@ -3,14 +3,10 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
-  FOREIGN KEY (etp) REFERENCES etp (id_etp),
-  FOREIGN KEY (Directions_commerciales) REFERENCES directions_commerciales (id_direction_commerciale),
-  FOREIGN KEY (secteur) REFERENCES secteurs (id_secteur),
-  FOREIGN KEY (groupement_pdv) REFERENCES groupements_pdv (id_groupement_pdv),
-  FOREIGN KEY (filieres) REFERENCES filieres (id_filieres),
-  FOREIGN KEY (metiers) REFERENCES metiers (id_metier),
-  FOREIGN KEY (activites) REFERENCES activites (id_activite),
-  FOREIGN KEY (contrat) REFERENCES contrats (id_contrat),
+  FOREIGN KEY (pdv_orga_actuelles) REFERENCES pdv_orga_actuelles(id_orga_actuelle),
+  FOREIGN KEY (pdv_orga_modelisees) REFERENCES pdv_orga_modelisees(id_orga_modelisee),
+  FOREIGN KEY (pdv_orga_transitoires) REFERENCES pdv_orga_transitoires(id_orga_transitoire),
+  FOREIGN KEY (pdv_orga_cibles) REFERENCES pdv_orga_cibles(id_orga_cible),
 );
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
