@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS secteurs(
 
 CREATE TABLE IF NOT EXISTS Groupement_pdv(
     id_groupement_pdv int PRIMARY KEY AUTO_INCREMENT,
-    nom_groupement_pdv varchar(100) NOT NULL
+    nom_groupement_pdv varchar(100) NOT NULL,
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv)
 );
 
@@ -34,9 +34,9 @@ CREATE TABLE IF NOT EXISTS pdv(
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
     FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
-    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
-    FOREIGN KEY (metiers) REFERENCES metiers(id_metier)
-    FOREIGN KEY (activites) REFERENCES activites(id_activite),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
+    FOREIGN KEY (activites) REFERENCES activites(id_activite)
 );
 
 CREATE TABLE IF NOT EXISTS ETP(
@@ -52,19 +52,19 @@ CREATE TABLE IF NOT EXISTS activites(
 
 CREATE TABLE IF NOT EXISTS metiers(
     id_metier int PRIMARY KEY AUTO_INCREMENT,
-    nom_metier varchar(100) NOT NULL
+    nom_metier varchar(100) NOT NULL,
     FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS filieres(
     id_filiere int PRIMARY KEY AUTO_INCREMENT,
-    nom_filiere varchar(100) NOT NULL
+    nom_filiere varchar(100) NOT NULL,
     FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule)
 );
 
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int PRIMARY KEY AUTO_INCREMENT,
-    nom_contrat varchar(100) NOT NULL
+    nom_contrat varchar(100) NOT NULL,
     FOREIGN KEY (etp) REFERENCES etp(id_etp),
     FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier)
 );
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int PRIMARY KEY NOT NULL,
-    date_du_mouvement DATE NOT NULL
+    date_du_mouvement DATE NOT NULL,
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
