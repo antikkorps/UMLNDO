@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
   FOREIGN KEY (pdv_orga_modelisees) REFERENCES pdv_orga_modelisees(id_orga_modelisee),
   FOREIGN KEY (pdv_orga_transitoires) REFERENCES pdv_orga_transitoires(id_orga_transitoire),
   FOREIGN KEY (pdv_orga_cibles) REFERENCES pdv_orga_cibles(id_orga_cible),
-  FOREIGN KEY (etp) REFERENCES etp(id_etp),
+  FOREIGN KEY (etp1) REFERENCES etp(id_etp),
+  FOREIGN KEY (etp2) REFERENCES etp(id_etp),
 );
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
