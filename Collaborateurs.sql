@@ -14,18 +14,32 @@ CREATE TABLE IF NOT EXISTS collaborateurs(
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
     id_direction_co int PRIMARY KEY AUTO_INCREMENT,
     nom_direction_co varchar(100) NOT NULL,
-    FOREIGN KEY (matricule) REFERENCES collaborateurs(matricule)
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
+    FOREIGN KEY (activites) REFERENCES activites(id_activite)
 );
 
 CREATE TABLE IF NOT EXISTS secteurs(
     id_secteur int PRIMARY KEY AUTO_INCREMENT,
     nom_secteur varchar(100) NOT NULL
+    FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
+    FOREIGN KEY (activites) REFERENCES activites(id_activite)
 );
 
 CREATE TABLE IF NOT EXISTS Groupement_pdv(
     id_groupement_pdv int PRIMARY KEY AUTO_INCREMENT,
     nom_groupement_pdv varchar(100) NOT NULL,
-    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv)
+    FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
+    FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
+    FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+    FOREIGN KEY (collaborateur) REFERENCES collaborateurs(matricule),
+    FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
+    FOREIGN KEY (activites) REFERENCES activites(id_activite)
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
