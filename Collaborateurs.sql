@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
-    id_orga_modelisee PRIMARY KEY int NOT NULL,
+    id_orga_modelisee int PRIMARY KEY NOT NULL,
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
-    id_orga_transitoire PRIMARY KEY int NOT NULL,
+    id_orga_transitoire int PRIMARY KEY NOT NULL,
     FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
     FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
     FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
