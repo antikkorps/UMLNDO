@@ -59,10 +59,10 @@ CREATE TABLE IF NOT EXISTS collaborateur(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
-  pdv_orga_actuelles int(50) NOT NULL,
-  pdv_orga_modelisees int(50) NOT NULL,
-  pdv_orga_transitoires int(50) NOT NULL,
-  pdv_orga_cibles int(50) NOT NULL,
+  pdv_orga_actuelles int NOT NULL,
+  pdv_orga_modelisees int NOT NULL,
+  pdv_orga_transitoires int NOT NULL,
+  pdv_orga_cibles int NOT NULL,
   etp1 int NOT NULL,
   etp2 int NOT NULL
 );
@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS Directions_commerciales(
     secteur int NOT NULL,
     collaborateurs varchar(50) NOT NULL,
     metiers int NOT NULL,
-    activites int NOT NULL
+    activite int NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS secteurs(
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS secteurs(
     direction_co int NOT NULL,
     collaborateurs varchar(50) NOT NULL,
     metiers int NOT NULL,
-    activites int NOT NULL    
+    activite int NOT NULL    
 );
 
 CREATE TABLE IF NOT EXISTS groupement_pdv(
@@ -95,7 +95,7 @@ CREATE TABLE IF NOT EXISTS groupement_pdv(
     direction_co int NOT NULL,
     collaborateurs varchar(50) NOT NULL,
     metiers int NOT NULL,
-    activites int NOT NULL
+    activite int NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
@@ -108,7 +108,7 @@ CREATE TABLE IF NOT EXISTS etps(
     etp FLOAT NOT NULL
 );
 
-CREATE TABLE IF NOT EXISTS activite(
+CREATE TABLE IF NOT EXISTS activites(
     id_activite int PRIMARY KEY AUTO_INCREMENT,
     nom_activite varchar(100) NOT NULL,
     collaborateurs varchar(50) NOT NULL
@@ -119,22 +119,26 @@ CREATE TABLE IF NOT EXISTS metiers(
     id_metier int PRIMARY KEY AUTO_INCREMENT,
     nom_metier varchar(100) NOT NULL,
     collaborateurs varchar(50) NOT NULL,
-    activites int NOT NULL
+    activite int NOT NULL
     
 );
 
 CREATE TABLE IF NOT EXISTS filieres(
     id_filiere int PRIMARY KEY AUTO_INCREMENT,
     nom_filiere varchar(100) NOT NULL,
-    collaborateurs varchar(50) NOT NULL
-    
+    collaborateurs varchar(50) NOT NULL,
+    activite int NOT NULL
+
 );
 
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int PRIMARY KEY AUTO_INCREMENT,
     nom_contrat varchar(100) NOT NULL,
     etp int NOT NULL,
-    nom_metier int NOT NULL
+    nom_metier int NOT NULL,
+    collaborateurs varchar(50) NOT NULL,
+    activite int NOT NULL
+
 );
 
 ALTER TABLE pdv_orga_actuelles
@@ -197,14 +201,14 @@ ADD FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite);
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE secteurs
 ADD FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite);
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE groupement_pdv
 ADD FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
@@ -212,22 +216,22 @@ ADD FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite);
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE activites
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule);
 
 ALTER TABLE metiers
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite);
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE filieres
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite);
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE contrats
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
-ADD FOREIGN KEY (activites) REFERENCES activite(id_activite),
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite),
 ADD FOREIGN KEY (etp) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier);
 
