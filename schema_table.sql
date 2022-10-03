@@ -99,8 +99,7 @@ CREATE TABLE IF NOT EXISTS groupement_pdv(
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
-    --Utiliser EDS à la place d'ID mais garder le nom--
-    id_pdv int PRIMARY KEY AUTO_INCREMENT,
+    id_pdv int PRIMARY KEY,
     nom_pdv varchar(100) NOT NULL
 );
 
