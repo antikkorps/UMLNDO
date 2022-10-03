@@ -99,6 +99,7 @@ CREATE TABLE IF NOT EXISTS groupement_pdv(
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
+    --Utiliser EDS à la place d'ID mais garder le nom--
     id_pdv int PRIMARY KEY AUTO_INCREMENT,
     nom_pdv varchar(100) NOT NULL
 );
@@ -134,6 +135,7 @@ CREATE TABLE IF NOT EXISTS filieres(
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int PRIMARY KEY AUTO_INCREMENT,
     nom_contrat varchar(100) NOT NULL DEFAULT 'A définir',
+    -- lien avec tx de présence au lieu etp--
     etp int,
     nom_metier int,
     collaborateurs varchar(50),
