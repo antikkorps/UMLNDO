@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     id_pdv_orga_actuelle int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    pdv_orga_actuel int,
+    pdv_orga_actuelle int,
     groupement_pdv_actuel int NOT NULL,
     secteur_actuel int NOT NULL,
     direction_co_actuel int NOT NULL,
