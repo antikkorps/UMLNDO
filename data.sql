@@ -63,4 +63,14 @@ INSERT INTO pdv (id_pdv, nom_pdv)
     (522,'MONTBELIARD CENTRE'), (523,'BEAUCOURT'), (541,'DELLE'), (542,'FESCHES LE CHATEL'), (543,'ISLE/DOUBS'), (545,'Siège'), (547,'GRAND-CHARMONT'), (548,'MONTBE. PIED DES GOUTTES'), 
     (549,'SOCHAUX'), (605,'POLE AGRI PRO BELFORT');
 
+INSERT INTO groupement_pdv (nom_groupement_pdv)
+    VALUES 
+    ('BELFORT'), ('BESSONCOURT'), ('VALDOIE');
 
+INSERT INTO secteurs (nom_secteur)
+    VALUES 
+    ('SUD SARTHE'), ('NORD SARTHE'), ('PAYS DU MILIEU');
+
+INSERT INTO direction_commerciale (nom_direction_commerciale)
+    VALUES 
+    ('Gollum'), ('Aragorn'), ('Galadrielle');
