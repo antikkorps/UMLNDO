@@ -134,13 +134,24 @@ CREATE TABLE IF NOT EXISTS filieres(
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int PRIMARY KEY AUTO_INCREMENT,
     nom_contrat varchar(100) NOT NULL DEFAULT 'A définir',
-    -- lien avec tx de présence au lieu etp--
     etp int,
     nom_metier int,
     collaborateurs varchar(50),
     activite int
 
 );
+
+CREATE TABLE taux_de_présence (
+    id_taux_de_presence int PRIMARY KEY AUTO_INCREMENT,
+    taux_de_presence int NOT NULL,
+    collaborateur varchar(50) NOT NULL,
+    activite int NOT NULL,
+    metier int NOT NULL,
+    contrat int NOT NULL,
+    filiere int NOT NULL
+);
+
+
 
 ALTER TABLE pdv_orga_actuelles
 ADD FOREIGN KEY (id_pdv_orga_actuelle) REFERENCES pdv(id_pdv),
@@ -235,6 +246,13 @@ ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (activite) REFERENCES activites(id_activite),
 ADD FOREIGN KEY (etp) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier);
+
+ALTER TABLE taux_de_presence 
+ADD FOREIGN KEY (collaborateur) REFERENCES matricule (collaborateur),
+ADD FOREIGN KEY (activite) REFERENCES activites (id_activite),
+ADD FOREIGN KEY (metier) REFERENCES metiers (id_metier),
+ADD FOREIGN KEY (contrat) REFERENCES contrats (id_contrat),
+ADD FOREIGN KEY (filiere) REFERENCES filieres (id_filiere);
 
 
 DROP TABLE collaborateurs, etps, metiers, pdv, groupement_pdv, secteurs, Directions_commerciales, filieres, contrats, pdv_orga_actuelles, pdv_orga_modelisees, pdv_orga_transitoires, pdv_orga_cibles;
