@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     id_pdv_orga_actuelle int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    pdv_orga_actuelle int DEFAULT 'A définir',
+    pdv_orga_actuelle varchar(50) DEFAULT 'A définir',
     groupement_pdv_actuel int NOT NULL,
     secteur_actuel int NOT NULL,
     direction_co_actuel int NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     id_orga_modelisee int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    pdv_modelise int DEFAULT 'A définir',
+    pdv_modelise varchar(50) DEFAULT 'A définir',
     groupement_pdv_modelise int NOT NULL,
     secteur_modelise int NOT NULL,
     direction_co_modelise int NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
     id_orga_transitoire int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    pdv_transitoire int DEFAULT 'A définir',
+    pdv_transitoire varchar(50) DEFAULT 'A définir',
     groupement_pdv_transitoire int NOT NULL,
     secteur_transitoire int NOT NULL,
     direction_co_transitoire int NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     date_du_mouvement DATE NOT NULL,
-    pdv_cible int DEFAULT 'A définir',
+    pdv_cible varchar(50) DEFAULT 'A définir',
     groupement_pdv_cible int NOT NULL,
     secteur_cible int NOT NULL,
     direction_co_cible int NOT NULL,
