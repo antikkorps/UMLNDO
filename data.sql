@@ -71,6 +71,6 @@ INSERT INTO secteurs (nom_secteur)
     VALUES 
     ('SUD SARTHE'), ('NORD SARTHE'), ('PAYS DU MILIEU');
 
-INSERT INTO direction_commerciale (nom_direction_commerciale)
+INSERT INTO Directions_commerciales (nom_direction_co)
     VALUES 
     ('Gollum'), ('Aragorn'), ('Galadrielle');
