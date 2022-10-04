@@ -141,7 +141,7 @@ CREATE TABLE IF NOT EXISTS contrats (
 
 );
 
-CREATE TABLE taux_de_présence (
+CREATE TABLE taux_de_presence (
     id_taux_de_presence int PRIMARY KEY AUTO_INCREMENT,
     taux_de_presence int NOT NULL,
     collaborateur varchar(50) NOT NULL,
@@ -150,7 +150,6 @@ CREATE TABLE taux_de_présence (
     contrat int NOT NULL,
     filiere int NOT NULL
 );
-
 
 
 ALTER TABLE pdv_orga_actuelles
@@ -248,8 +247,8 @@ ADD FOREIGN KEY (etp) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier);
 
 ALTER TABLE taux_de_presence 
-ADD FOREIGN KEY (collaborateur) REFERENCES matricule (collaborateur),
-ADD FOREIGN KEY (activite) REFERENCES activites (id_activite),
+ADD FOREIGN KEY (collaborateur) REFERENCES collaborateur(matricule),
+ADD FOREIGN KEY (activite) REFERENCES activites(id_activite),
 ADD FOREIGN KEY (metier) REFERENCES metiers (id_metier),
 ADD FOREIGN KEY (contrat) REFERENCES contrats (id_contrat),
 ADD FOREIGN KEY (filiere) REFERENCES filieres (id_filiere);
