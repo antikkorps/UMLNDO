@@ -1,60 +1,60 @@
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     id_pdv_orga_actuelle int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_orga_actuelle varchar(50) DEFAULT 'A définir',
-    groupement_pdv_actuel int NOT NULL,
-    secteur_actuel int NOT NULL,
-    direction_co_actuel int NOT NULL,
+    groupement_pdv_actuel int,
+    secteur_actuel int,
+    direction_co_actuel int,
     collaborateur_actuel varchar(50) NOT NULL,
-    etp_actuel int NOT NULL,
+    etp_actuel int,
     taux_presence_actuel int NOT NULL,
-    metier_actuel int NOT NULL,
-    contrat_actuel int NOT NULL,
-    filieres_actuel int NOT NULL
+    metier_actuel int,
+    contrat_actuel int,
+    filieres_actuel int
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     id_orga_modelisee int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_modelise varchar(50) DEFAULT 'A définir',
-    groupement_pdv_modelise int NOT NULL,
-    secteur_modelise int NOT NULL,
-    direction_co_modelise int NOT NULL,
+    groupement_pdv_modelise int,
+    secteur_modelise int,
+    direction_co_modelise int,
     collaborateur_modelise varchar(50) NOT NULL,
-    etp_modelise int NOT NULL,
-    taux_presence_actuel int NOT NULL,
-    metier_modelise int NOT NULL,
-    contrat_modelise int NOT NULL,
-    filieres_modelisee int NOT NULL
+    etp_modelise int,
+    taux_presence_actuel int,
+    metier_modelise int,
+    contrat_modelise int,
+    filieres_modelisee int
     
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
     id_orga_transitoire int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_transitoire varchar(50) DEFAULT 'A définir',
-    groupement_pdv_transitoire int NOT NULL,
-    secteur_transitoire int NOT NULL,
-    direction_co_transitoire int NOT NULL,
+    groupement_pdv_transitoire int,
+    secteur_transitoire int,
+    direction_co_transitoire int,
     collaborateur_transitoire varchar(50) NOT NULL,
-    etp_transitoire int NOT NULL,
+    etp_transitoire int,
     taux_presence_actuel int NOT NULL,
-    metier_transitoire int NOT NULL,
-    contrat_transitoire int NOT NULL,
-    filieres_transitoire int NOT NULL
+    metier_transitoire int,
+    contrat_transitoire int,
+    filieres_transitoire int
     
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    date_du_mouvement DATE NOT NULL,
+    date_du_mouvement DATE,
     pdv_cible varchar(50) DEFAULT 'A définir',
-    groupement_pdv_cible int NOT NULL,
-    secteur_cible int NOT NULL,
-    direction_co_cible int NOT NULL,
+    groupement_pdv_cible int,
+    secteur_cible int,
+    direction_co_cible int,
     collaborateur_cible varchar(50) NOT NULL,
-    etp_cible int NOT NULL,
-    taux_presence_actuel int NOT NULL,
-    metier_cible int NOT NULL,
-    contrat_cible int NOT NULL,
-    filieres_cible int NOT NULL
+    etp_cible int,
+    taux_presence_actuel int,
+    metier_cible int,
+    contrat_cible int,
+    filieres_cible int
     
 );
 
