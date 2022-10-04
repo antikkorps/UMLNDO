@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS secteurs(
 CREATE TABLE IF NOT EXISTS groupement_pdv(
     id_groupement_pdv int PRIMARY KEY AUTO_INCREMENT,
     nom_groupement_pdv varchar(100) NOT NULL,
-    pdv int NOT NULL,
+    pdv varchar(50) NOT NULL,
     secteur int NOT NULL,
     direction_co int NOT NULL,
     collaborateurs varchar(50) NOT NULL,
@@ -101,7 +101,7 @@ CREATE TABLE IF NOT EXISTS groupement_pdv(
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
-    id_pdv int PRIMARY KEY,
+    id_pdv varchar(50) PRIMARY KEY,
     nom_pdv varchar(100) NOT NULL
 );
 
