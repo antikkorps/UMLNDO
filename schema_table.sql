@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
-    id_pdv_orga_actuelle int PRIMARY KEY AUTO_INCREMENT,
-    pdv_actuel int,
+    id_pdv_orga_actuelle int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    pdv_orga_actuel int,
     groupement_pdv_actuel int NOT NULL,
     secteur_actuel int NOT NULL,
     direction_co_actuel int NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
-    id_orga_modelisee int PRIMARY KEY NOT NULL,
+    id_orga_modelisee int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_modelise int NOT NULL,
     groupement_pdv_modelise int NOT NULL,
     secteur_modelise int NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
-    id_orga_transitoire int PRIMARY KEY NOT NULL,
+    id_orga_transitoire int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_transitoire int NOT NULL,
     groupement_pdv_transitoire int NOT NULL,
     secteur_transitoire int NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
-    id_orga_cible int PRIMARY KEY NOT NULL,
+    id_orga_cible int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     date_du_mouvement DATE NOT NULL,
     pdv_cible int NOT NULL,
     groupement_pdv_cible int NOT NULL,
@@ -153,7 +153,7 @@ CREATE TABLE taux_de_presence (
 
 
 ALTER TABLE pdv_orga_actuelles
-ADD FOREIGN KEY (id_pdv_orga_actuelle) REFERENCES pdv(id_pdv),
+ADD FOREIGN KEY (pdv_orga_actuelle) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_actuel) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_actuel) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (direction_co_actuel) REFERENCES Directions_commerciales(id_direction_co),
