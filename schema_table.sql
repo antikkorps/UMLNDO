@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS contrats (
 
 CREATE TABLE taux_de_presence (
     id_taux_de_presence int PRIMARY KEY AUTO_INCREMENT,
-    taux_de_presence int NOT NULL DEFAULT 'A définir'
+    taux_de_presence varchar(50) NOT NULL DEFAULT 'A définir'
 );
 
 
