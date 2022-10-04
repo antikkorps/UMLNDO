@@ -71,55 +71,55 @@ CREATE TABLE IF NOT EXISTS collaborateur(
 
 CREATE TABLE IF NOT EXISTS Directions_commerciales(
     id_direction_co int PRIMARY KEY AUTO_INCREMENT,
-    nom_direction_co varchar(100) NOT NULL,
-    groupement_pdv int NOT NULL,
-    secteur int NOT NULL,
-    collaborateurs varchar(50) NOT NULL,
-    metiers int NOT NULL,
-    activite int NOT NULL
+    nom_direction_co varchar(100),
+    groupement_pdv int,
+    secteur int,
+    collaborateurs varchar(50),
+    metiers int,
+    activite int
 );
 
 CREATE TABLE IF NOT EXISTS secteurs(
     id_secteur int PRIMARY KEY AUTO_INCREMENT,
-    nom_secteur varchar(100) NOT NULL,
-    groupement_pdv int NOT NULL,
-    direction_co int NOT NULL,
-    collaborateurs varchar(50) NOT NULL,
-    metiers int NOT NULL,
-    activite int NOT NULL
+    nom_secteur varchar(100),
+    groupement_pdv int,
+    direction_co int,
+    collaborateurs varchar(50),
+    metiers int,
+    activite int
 );
 
 CREATE TABLE IF NOT EXISTS groupement_pdv(
     id_groupement_pdv int PRIMARY KEY AUTO_INCREMENT,
-    nom_groupement_pdv varchar(100) NOT NULL,
-    pdv varchar(50) NOT NULL,
-    secteur int NOT NULL,
-    direction_co int NOT NULL,
-    collaborateurs varchar(50) NOT NULL,
-    metiers int NOT NULL,
-    activite int NOT NULL
+    nom_groupement_pdv varchar(100),
+    pdv varchar(50),
+    secteur int,
+    direction_co int,
+    collaborateurs varchar(50),
+    metiers int,
+    activite int
 );
 
 CREATE TABLE IF NOT EXISTS pdv(
     id_pdv varchar(50) PRIMARY KEY,
-    nom_pdv varchar(100) NOT NULL
+    nom_pdv varchar(100)
 );
 
 CREATE TABLE IF NOT EXISTS etps(
     id_etp int PRIMARY KEY AUTO_INCREMENT,
-    etp varchar(50) NOT NULL DEFAULT 'A définir'
+    etp varchar(50) DEFAULT 'A définir'
 );
 
 CREATE TABLE IF NOT EXISTS activites(
     id_activite int PRIMARY KEY AUTO_INCREMENT,
-    nom_activite varchar(100) NOT NULL DEFAULT 'A définir',
+    nom_activite varchar(100) DEFAULT 'A définir',
     collaborateurs varchar(50)
     
 );
 
 CREATE TABLE IF NOT EXISTS metiers(
     id_metier int PRIMARY KEY AUTO_INCREMENT,
-    nom_metier varchar(100) NOT NULL DEFAULT 'A définir',
+    nom_metier varchar(100)DEFAULT 'A définir',
     collaborateurs varchar(50),
     activite int
     
@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS metiers(
 
 CREATE TABLE IF NOT EXISTS filieres(
     id_filiere int PRIMARY KEY AUTO_INCREMENT,
-    nom_filiere varchar(100) NOT NULL DEFAULT 'A définir',
+    nom_filiere varchar(100) DEFAULT 'A définir',
     collaborateurs varchar(50),
     activite int
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS filieres(
 
 CREATE TABLE IF NOT EXISTS contrats (
     id_contrat int PRIMARY KEY AUTO_INCREMENT,
-    nom_contrat varchar(100) NOT NULL DEFAULT 'A définir',
+    nom_contrat varchar(100) DEFAULT 'A définir',
     etp int,
     nom_metier int,
     collaborateurs varchar(50),
@@ -145,7 +145,7 @@ CREATE TABLE IF NOT EXISTS contrats (
 
 CREATE TABLE taux_de_presence (
     id_taux_de_presence int PRIMARY KEY AUTO_INCREMENT,
-    taux_de_presence varchar(50) NOT NULL DEFAULT 'A définir'
+    taux_de_presence varchar(50) DEFAULT 'A définir'
 );
 
 
