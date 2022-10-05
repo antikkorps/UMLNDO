@@ -1,7 +1,3 @@
-INSERT INTO contrats (nom_contrat) 
-    VALUES 
-    ('A définir'), ('CDI'), ('CDI sur-effectif'), ('CDD'), ('Stage'), ('Alternance'), ('Intérim'), ('Freelance'), ('Apprentissage'), ('Contrat de professionnalisation');
-
 INSERT INTO collaborateur (matricule, nom, prenom)
     VALUES
  (69788,'NOM001','PRENOM001'),(63702,'NOM002','PRENOM002'),(69821,'NOM003','PRENOM003'),(62890,'NOM004','PRENOM004'),(69583,'NOM005','PRENOM005'),(62654,'NOM006','PRENOM006'),(69218,'NOM007','PRENOM007')
@@ -22,48 +18,13 @@ INSERT INTO collaborateur (matricule, nom, prenom)
 ,(69091,'NOM106','PRENOM106'),(24600,'NOM107','PRENOM107'),(63176,'NOM108','PRENOM108'),(63445,'NOM109','PRENOM109'),(63822,'NOM110','PRENOM110'),(62986,'NOM111','PRENOM111'),(63882,'NOM112','PRENOM112')
 ,(64152,'NOM113','PRENOM113'),(62332,'NOM114','PRENOM114'),(63804,'NOM115','PRENOM115'),(68143,'NOM116','PRENOM116'),(90994,'NOM117','PRENOM117');
 
-INSERT INTO filieres (nom_filiere)
-    VALUES
-    ('A définir'), ('Particuliers'), ('Pro/Agri'), ('Entreprises'), ('Patrimoine'), ('Assurance');
-
-INSERT INTO metiers (nom_metier)
-    VALUES 
-    ('A définir'), ('Technico commercial particuliers'), ('Conseiller clientèle'), ('Technico commercial entreprises'), ('Conseiller clientèle particuliers'), ('Conseiller clientèle banque privée'), 
-    ('Directeur de pôle délégué'), ('Directeur de pôle'), ('Chargé(e) accueil'), ('Conseiller clientèle entreprises'), ('Conseiller clientèle patrimoine'), ('Conseiller clientèle assurance'), 
-    ('Technico commercial pro'), ('Technico commercial agri'), ('Conseiller clientèle pro'), ('Conseiller clientèle agri'), ('Chargé de développement agricole'), ('Chargé de développement pro'), 
-    ('Directeur de pôle pro délégué'), ('Directeur de pôle pro'), ('Directeur de pôle agri délégué'), ('Directeur de pôle agri'), ('Technico commercial patrimoine'), ('Conseiller clientèle patrimoine'), 
-    ('Conseiller Gestion de patrimoine'), ('Directeur de pôle patrimoine délégué'), ('Directeur de pôle patrimoine');
-
-
-INSERT INTO activites (nom_activite)
-    VALUES
-    ('A définir'), ('Accueil'), ('commerciale grand public'), ('commerciale intermédiaires'), ('Haut de gamme traditionnel'), ('Associations'), ('Pro grand public'), ('Pro classique'), ('Pro dynamique'), 
-    ('Pro entreprenant'), ('Agri grand public'), ('Agri classique'), ('Agri dynamique'), ('Agri entreprenant'), ('Agri CUMA'), ('Agri SCAF'), ('Management');
-
-INSERT INTO etps (etp)
-    VALUES 
-    ('A définir'), (0.01), (0.02), (0.03), (0.04), (0.05), (0.06), (0.07), (0.08), (0.09), (0.10), (0.11), (0.12), (0.13), (0.14), (0.15), (0.16), (0.17), (0.18), (0.19), (0.20), (0.21), (0.22), 
-    (0.23), (0.24), (0.25), (0.26), (0.27), (0.28), (0.29), (0.30), (0.31), (0.32), (0.33), (0.34), (0.35), (0.36), (0.37), (0.38), (0.39), (0.40), (0.41), (0.42), (0.43), (0.44), (0.45), (0.46), 
-    (0.47), (0.48), (0.49), (0.50), (0.51), (0.52), (0.53), (0.54), (0.55), (0.56), (0.57), (0.58), (0.59), (0.60), (0.61), (0.62), (0.63), (0.64), (0.65), (0.66), (0.67), (0.68), (0.69), (0.70), 
-    (0.71), (0.72), (0.73), (0.74), (0.75), (0.76), (0.77), (0.78), (0.79), (0.80), (0.81), (0.82), (0.83), (0.84), (0.85), (0.86), (0.87), (0.88), (0.89), (0.90), (0.91), (0.92), (0.93), (0.94), 
-    (0.95), (0.96), (0.97), (0.98), (0.99), (1.00);
-
-INSERT INTO taux_de_presence (taux_de_presence)
-    VALUES 
-    ('A définir'), (0.01), (0.02), (0.03), (0.04), (0.05), (0.06), (0.07), (0.08), (0.09), (0.10), (0.11), (0.12), (0.13), (0.14), (0.15), (0.16), (0.17), (0.18), (0.19), (0.20), (0.21), (0.22), 
-    (0.23), (0.24), (0.25), (0.26), (0.27), (0.28), (0.29), (0.30), (0.31), (0.32), (0.33), (0.34), (0.35), (0.36), (0.37), (0.38), (0.39), (0.40), (0.41), (0.42), (0.43), (0.44), (0.45), (0.46), 
-    (0.47), (0.48), (0.49), (0.50), (0.51), (0.52), (0.53), (0.54), (0.55), (0.56), (0.57), (0.58), (0.59), (0.60), (0.61), (0.62), (0.63), (0.64), (0.65), (0.66), (0.67), (0.68), (0.69), (0.70), 
-    (0.71), (0.72), (0.73), (0.74), (0.75), (0.76), (0.77), (0.78), (0.79), (0.80), (0.81), (0.82), (0.83), (0.84), (0.85), (0.86), (0.87), (0.88), (0.89), (0.90), (0.91), (0.92), (0.93), (0.94), 
-    (0.95), (0.96), (0.97), (0.98), (0.99), (1.00);
-
 INSERT INTO pdv (id_pdv, nom_pdv)
     VALUES 
     (172,'BELFORT_VIEILLE_VILLE'), (175,'BELFORT JEAN-JAURES'), (176,'BESSONCOURT'), (177,'#N/A'), (178,'GIROMAGNY'), (324,'VALDOIE'), (402,'GRANDVILLARS'), (403,'AUDINCOURT'), (404,'HERICOURT'), 
     (405,'HERIMONCOURT'), (416,'SELONCOURT'), (422,'COLOMBIER-FONTAINE'), (424,'VALENTIGNEY'), (426,'BAVANS'), (428,'BELFORT CENTRE'), (432,'PONT DE ROIDE'), (436,'DANJOUTIN'), (440,'ESSERT'), 
     (522,'MONTBELIARD CENTRE'), (523,'BEAUCOURT'), (541,'DELLE'), (542,'FESCHES LE CHATEL'), (543,'ISLE/DOUBS'), (545,'Siège'), (547,'GRAND-CHARMONT'), (548,'MONTBE. PIED DES GOUTTES'), 
     (549,'SOCHAUX'), (605,'POLE AGRI PRO BELFORT');
-
-INSERT INTO groupement_pdv (nom_groupement_pdv)
+    INSERT INTO groupement_pdv (nom_groupement_pdv)
     VALUES 
     ('BELFORT'), ('BESSONCOURT'), ('VALDOIE');
 
@@ -74,3 +35,8 @@ INSERT INTO secteurs (nom_secteur)
 INSERT INTO Directions_commerciales (nom_direction_co)
     VALUES 
     ('Gollum'), ('Aragorn'), ('Galadrielle');
+
+
+INSERT INTO pdv_orga_actuelles (pdv_orga_actuelle, groupement_pdv_actuelle, secteur_actuel, direction_co_actuel, collaborateur_actuel, etp_actuel, taux_presence_actuel, metier_actuel, contrat_actuel,filieres_actuel)
+    VALUES
+    (172, 'BELFORT', 'SUD SARTHE', 'Gollum', 69788, 5, 5, 5, 6), (405, 'BESSONCOURT', 'PAYS DU MILIEU', 'Aragorn', 99967, 6, 4, 3, 7)
