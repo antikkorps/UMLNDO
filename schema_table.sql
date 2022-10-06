@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     id_pdv_orga_actuelle int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    pdv_orga_actuelle varchar(50) DEFAULT 'A définir',
+    pdv_actuel varchar(50) DEFAULT 'A définir',
     groupement_pdv_actuel int,
     secteur_actuel int,
     direction_co_actuel int,
@@ -136,7 +136,7 @@ CREATE TABLE taux_de_presence (
 
 
 ALTER TABLE pdv_orga_actuelles
-ADD FOREIGN KEY (pdv_orga_actuelle) REFERENCES pdv(id_pdv),
+ADD FOREIGN KEY (pdv_actuel) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_actuel) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_actuel) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (direction_co_actuel) REFERENCES Directions_commerciales(id_direction_co),
