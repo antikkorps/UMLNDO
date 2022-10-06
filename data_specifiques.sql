@@ -40,4 +40,4 @@ INSERT INTO Directions_commerciales (nom_direction_co)
 INSERT INTO pdv_orga_actuelles (pdv_actuel, groupement_pdv_actuel, secteur_actuel, direction_co_actuel, collaborateur_actuel, etp_actuel, taux_presence_actuel, 
 metier_actuel, contrat_actuel,filieres_actuel, orga_modelisee)
     VALUES
-    ('25', 1, 3, 2, '69788', 5, 5, 5, 6, 2, 2), ('30', 2, 2, 1, '99967', 6, 4, 3, 7, 3, 1);
+    (172, 1, 3, 2, '69788', 5, 5, 5, 6, 2, 2), (422, 2, 2, 1, '99967', 6, 4, 3, 7, 3, 1);
