@@ -37,6 +37,7 @@ INSERT INTO Directions_commerciales (nom_direction_co)
     ('Gollum'), ('Aragorn'), ('Galadrielle');
 
 
-INSERT INTO pdv_orga_actuelles (pdv_orga_actuelle, groupement_pdv_actuelle, secteur_actuel, direction_co_actuel, collaborateur_actuel, etp_actuel, taux_presence_actuel, metier_actuel, contrat_actuel,filieres_actuel)
+INSERT INTO pdv_orga_actuelles (pdv_orga_actuelle, groupement_pdv_actuel, secteur_actuel, direction_co_actuel, collaborateur_actuel, etp_actuel, taux_presence_actuel, 
+metier_actuel, contrat_actuel,filieres_actuel, orga_modelisee)
     VALUES
-    (172, 'BELFORT', 'SUD SARTHE', 'Gollum', 69788, 5, 5, 5, 6), (405, 'BESSONCOURT', 'PAYS DU MILIEU', 'Aragorn', 99967, 6, 4, 3, 7)
+    (1, 1, 3, 2, 69788, 5, 5, 5, 6, 2, 2), (2, 2, 2, 1, 99967, 6, 4, 3, 7, 3, 1);

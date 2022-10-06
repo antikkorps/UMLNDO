@@ -160,7 +160,6 @@ ADD FOREIGN KEY (metier_modelise) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (contrat_modelise) REFERENCES contrats(id_contrat),
 ADD FOREIGN KEY (filieres_modelisee) REFERENCES filieres(id_filiere);
 
-
 ALTER TABLE pdv_orga_cibles
 ADD FOREIGN KEY (pdv_cible) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_cible) REFERENCES groupement_pdv(id_groupement_pdv),
@@ -174,7 +173,6 @@ ADD FOREIGN KEY (metier_cible) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (contrat_cible) REFERENCES contrats(id_contrat),
 ADD FOREIGN KEY (filieres_cible) REFERENCES filieres(id_filiere),
 ADD FOREIGN KEY (orga_modelisee) REFERENCES pdv_orga_modelisees(id_orga_modelisee);
-
 
 ALTER TABLE collaborateur
 ADD FOREIGN KEY (pdv_orga_actuelles) REFERENCES pdv_orga_actuelles(id_pdv_orga_actuelle),
