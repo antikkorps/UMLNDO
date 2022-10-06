@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     id_orga_modelisee int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    date_du_mouvement_modelise DATE,
     pdv_modelise varchar(50) DEFAULT 'A définir',
     groupement_pdv_modelise int,
     secteur_modelise int,
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    date_du_mouvement DATE,
+    date_du_mouvement_cible DATE,
     pdv_cible varchar(50) DEFAULT 'A définir',
     groupement_pdv_cible int,
     secteur_cible int,
@@ -67,9 +68,8 @@ CREATE TABLE IF NOT EXISTS collaborateur(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
+  date_du_mouvement DATE,
   pdv_orga_actuelles int,
-  pdv_orga_modelisees int,
-  pdv_orga_transitoires int,
   pdv_orga_cibles int
 );
 
@@ -211,8 +211,6 @@ ADD FOREIGN KEY (filieres_cible) REFERENCES filieres(id_filiere);
 
 ALTER TABLE collaborateur
 ADD FOREIGN KEY (pdv_orga_actuelles) REFERENCES pdv_orga_actuelles(id_pdv_orga_actuelle),
-ADD FOREIGN KEY (pdv_orga_modelisees) REFERENCES pdv_orga_modelisees(id_orga_modelisee),
-ADD FOREIGN KEY (pdv_orga_transitoires) REFERENCES pdv_orga_transitoires(id_orga_transitoire),
 ADD FOREIGN KEY (pdv_orga_cibles) REFERENCES pdv_orga_cibles(id_orga_cible);
 
 ALTER TABLE Directions_commerciales
