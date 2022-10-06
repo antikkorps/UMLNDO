@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     metier_actuel int,
     contrat_actuel int,
     filieres_actuel int
+    --orga_modelisee
 );
 
 CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
@@ -18,6 +19,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     groupement_pdv_modelise int,
     secteur_modelise int,
     direction_co_modelise int,
+    --virer collaborateur_modelise
     collaborateur_modelise varchar(50) NOT NULL,
     etp_modelise int,
     taux_presence_actuel int,
@@ -27,6 +29,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     
 );
 
+--supprimer la table pdv_orga_transitoires
 CREATE TABLE IF NOT EXISTS pdv_orga_transitoires (
     id_orga_transitoire int PRIMARY KEY NOT NULL AUTO_INCREMENT,
     pdv_transitoire varchar(50) DEFAULT 'A définir',
@@ -55,6 +58,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     metier_cible int,
     contrat_cible int,
     filieres_cible int
+    --orga_modelisee
     
 );
 
@@ -160,12 +164,14 @@ ADD FOREIGN KEY (taux_presence_actuel) REFERENCES taux_de_presence(id_taux_de_pr
 ADD FOREIGN KEY (metier_actuel) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (contrat_actuel) REFERENCES contrats(id_contrat),
 ADD FOREIGN KEY (filieres_actuel) REFERENCES filieres(id_filiere);
+--ajouter une foreign key référençant la table pdv_orga_modélisée
 
 ALTER TABLE pdv_orga_modelisees
 ADD FOREIGN KEY (pdv_modelise) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_modelise) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_modelise) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (direction_co_modelise) REFERENCES Directions_commerciales(id_direction_co),
+-- supprimer la ligne suivante
 ADD FOREIGN KEY (collaborateur_modelise) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (etp_modelise) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (taux_presence_actuel) REFERENCES taux_de_presence(id_taux_de_presence),
@@ -174,6 +180,7 @@ ADD FOREIGN KEY (metier_modelise) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (contrat_modelise) REFERENCES contrats(id_contrat),
 ADD FOREIGN KEY (filieres_modelisee) REFERENCES filieres(id_filiere);
 
+--supprimer l'ajout des foreign key pour la table pdv_orga_transitoires
 ALTER TABLE pdv_orga_transitoires
 ADD FOREIGN KEY (pdv_transitoire) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_transitoire) REFERENCES groupement_pdv(id_groupement_pdv),
@@ -199,6 +206,8 @@ ADD FOREIGN KEY (secteur_cible) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (metier_cible) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (contrat_cible) REFERENCES contrats(id_contrat),
 ADD FOREIGN KEY (filieres_cible) REFERENCES filieres(id_filiere);
+--ajouter une foreign key référençant la table pdv_orga_modélisée
+
 
 ALTER TABLE collaborateur
 ADD FOREIGN KEY (pdv_orga_actuelles) REFERENCES pdv_orga_actuelles(id_pdv_orga_actuelle),
