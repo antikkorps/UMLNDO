@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
 
 CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     id_orga_cible int PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    date_de_reorg DATE,
+    date_de_reorg_cible DATE,
     pdv_cible varchar(50) DEFAULT 'A définir',
     groupement_pdv_cible int,
     secteur_cible int,
@@ -50,12 +50,12 @@ CREATE TABLE IF NOT EXISTS collaborateur(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
-  date_du_mouvement DATE,
+  date_de_mouvement DATE,
   pdv_orga_actuelles int,
   pdv_orga_cibles int
 );
 
-CREATE TABLE IF NOT EXISTS Directions_commerciales(
+CREATE TABLE IF NOT EXISTS directions_commerciales(
     id_direction_co int PRIMARY KEY AUTO_INCREMENT,
     nom_direction_co varchar(100),
     groupement_pdv int,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS activites(
 
 CREATE TABLE IF NOT EXISTS metiers(
     id_metier int PRIMARY KEY AUTO_INCREMENT,
-    nom_metier varchar(100)DEFAULT 'A définir',
+    nom_de_metier varchar(100)DEFAULT 'A définir',
     collaborateurs varchar(50),
     activite int
     
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS metiers(
 
 CREATE TABLE IF NOT EXISTS filieres(
     id_filiere int PRIMARY KEY AUTO_INCREMENT,
-    nom_filiere varchar(100) DEFAULT 'A définir',
+    nom_de_filiere varchar(100) DEFAULT 'A définir',
     collaborateurs varchar(50),
     activite int
 
@@ -139,7 +139,7 @@ ALTER TABLE pdv_orga_actuelles
 ADD FOREIGN KEY (pdv_actuel) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_actuel) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_actuel) REFERENCES secteurs(id_secteur),
-ADD FOREIGN KEY (direction_co_actuel) REFERENCES Directions_commerciales(id_direction_co),
+ADD FOREIGN KEY (direction_co_actuel) REFERENCES directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateur_actuel) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (etp_actuel) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (taux_presence_actuel) REFERENCES taux_de_presence(id_taux_de_presence),
@@ -152,7 +152,7 @@ ALTER TABLE pdv_orga_modelisees
 ADD FOREIGN KEY (pdv_modelise) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_modelise) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_modelise) REFERENCES secteurs(id_secteur),
-ADD FOREIGN KEY (direction_co_modelise) REFERENCES Directions_commerciales(id_direction_co),
+ADD FOREIGN KEY (direction_co_modelise) REFERENCES directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (etp_modelise) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (taux_presence_actuel) REFERENCES taux_de_presence(id_taux_de_presence),
 ADD FOREIGN KEY (secteur_modelise) REFERENCES secteurs(id_secteur),
@@ -164,7 +164,7 @@ ALTER TABLE pdv_orga_cibles
 ADD FOREIGN KEY (pdv_cible) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (groupement_pdv_cible) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur_cible) REFERENCES secteurs(id_secteur),
-ADD FOREIGN KEY (direction_co_cible) REFERENCES Directions_commerciales(id_direction_co),
+ADD FOREIGN KEY (direction_co_cible) REFERENCES directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateur_cible) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (etp_cible) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (taux_presence_actuel) REFERENCES taux_de_presence(id_taux_de_presence),
@@ -178,7 +178,7 @@ ALTER TABLE collaborateur
 ADD FOREIGN KEY (pdv_orga_actuelles) REFERENCES pdv_orga_actuelles(id_pdv_orga_actuelle),
 ADD FOREIGN KEY (pdv_orga_cibles) REFERENCES pdv_orga_cibles(id_orga_cible);
 
-ALTER TABLE Directions_commerciales
+ALTER TABLE directions_commerciales
 ADD FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
 ADD FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
@@ -187,7 +187,7 @@ ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 
 ALTER TABLE secteurs
 ADD FOREIGN KEY (groupement_pdv) REFERENCES groupement_pdv(id_groupement_pdv),
-ADD FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+ADD FOREIGN KEY (direction_co) REFERENCES directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
@@ -195,7 +195,7 @@ ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
 ALTER TABLE groupement_pdv
 ADD FOREIGN KEY (pdv) REFERENCES pdv(id_pdv),
 ADD FOREIGN KEY (secteur) REFERENCES secteurs(id_secteur),
-ADD FOREIGN KEY (direction_co) REFERENCES Directions_commerciales(id_direction_co),
+ADD FOREIGN KEY (direction_co) REFERENCES directions_commerciales(id_direction_co),
 ADD FOREIGN KEY (collaborateurs) REFERENCES collaborateur(matricule),
 ADD FOREIGN KEY (metiers) REFERENCES metiers(id_metier),
 ADD FOREIGN KEY (activite) REFERENCES activites(id_activite);
@@ -218,4 +218,4 @@ ADD FOREIGN KEY (etp) REFERENCES etps(id_etp),
 ADD FOREIGN KEY (nom_metier) REFERENCES metiers(id_metier);
 
 
-DROP TABLE collaborateur, etps, metiers, pdv, groupement_pdv, secteurs, Directions_commerciales, filieres, contrats, pdv_orga_actuelles, pdv_orga_modelisees, pdv_orga_cibles;
+DROP TABLE collaborateur, etps, activites, metiers, pdv, groupement_pdv, secteurs, directions_commerciales, filieres, contrats, pdv_orga_actuelles, pdv_orga_modelisees, pdv_orga_cibles;

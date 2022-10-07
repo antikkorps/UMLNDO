@@ -2,11 +2,11 @@ INSERT INTO contrats (nom_contrat)
     VALUES 
     ('A définir'), ('CDI'), ('CDI sur-effectif'), ('CDD'), ('Stage'), ('Alternance'), ('Intérim'), ('Freelance'), ('Apprentissage'), ('Contrat de professionnalisation');
 
-INSERT INTO filieres (nom_filiere)
+INSERT INTO filieres (nom_de_filiere)
     VALUES
     ('A définir'), ('Particuliers'), ('Pro/Agri'), ('Entreprises'), ('Patrimoine'), ('Assurance');
 
-INSERT INTO metiers (nom_metier)
+INSERT INTO metiers (nom_de_metier)
     VALUES 
     ('A définir'), ('Technico commercial particuliers'), ('Conseiller clientèle'), ('Technico commercial entreprises'), ('Conseiller clientèle particuliers'), ('Conseiller clientèle banque privée'), 
     ('Directeur de pôle délégué'), ('Directeur de pôle'), ('Chargé(e) accueil'), ('Conseiller clientèle entreprises'), ('Conseiller clientèle patrimoine'), ('Conseiller clientèle assurance'), 
