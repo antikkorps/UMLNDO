@@ -6,7 +6,6 @@ CREATE TABLE IF NOT EXISTS pdv_orga_actuelles (
     direction_co_actuel int,
     collaborateur_actuel varchar(50) NOT NULL,
     etp_actuel int,
-    taux_presence_actuel int NOT NULL,
     metier_actuel int,
     contrat_actuel int,
     filieres_actuel int,
@@ -21,7 +20,6 @@ CREATE TABLE IF NOT EXISTS pdv_orga_modelisees (
     secteur_modelise int,
     direction_co_modelise int,
     etp_modelise int,
-    taux_presence_actuel int,
     metier_modelise int,
     contrat_modelise int,
     filieres_modelisee int
@@ -37,7 +35,6 @@ CREATE TABLE IF NOT EXISTS pdv_orga_cibles (
     direction_co_cible int,
     collaborateur_cible varchar(50) NOT NULL,
     etp_cible int,
-    taux_presence_actuel int,
     metier_cible int,
     contrat_cible int,
     filieres_cible int,
@@ -50,6 +47,7 @@ CREATE TABLE IF NOT EXISTS collaborateur(
   actif boolean NOT NULL DEFAULT '1',
   nom varchar(50) NOT NULL,
   prenom varchar(50) NOT NULL,
+  taux_presence_actuel int NOT NULL,
   date_de_mouvement DATE,
   pdv_orga_actuelles int,
   pdv_orga_cibles int
